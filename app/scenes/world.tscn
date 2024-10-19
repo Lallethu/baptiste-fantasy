@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://b8w4bbt6ofikb"]
+
+[node name="World" type="Node2D" groups=["world"]]
