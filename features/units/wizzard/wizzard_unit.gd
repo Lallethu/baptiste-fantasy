@@ -5,8 +5,8 @@ extends CharacterBody2D
 
 
 var avoidance: Vector2 = Vector2.ZERO
-var avoidance_strength: float = 0.3
-var target_radius: float = 15.0
+var avoidance_strength: float = 0.1
+var target_radius: float = 25.0
 
 var selected: bool = false:
 	set = set_selected
@@ -34,9 +34,9 @@ func avoid():
 	return result.normalized()
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("set_target"):
-		target = get_global_mouse_position()
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("set_target"):
+		#target = get_global_mouse_position()
 
 func _physics_process(delta: float) -> void:
 	velocity = Vector2.ZERO

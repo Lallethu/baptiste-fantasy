@@ -19,6 +19,21 @@ is_worker = false
 [sub_resource type="CircleShape2D" id="CircleShape2D_jvja7"]
 radius = 7.07107
 
+[sub_resource type="Animation" id="Animation_8jxxj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_50py2"]
 resource_name = "idle"
 length = 0.8
@@ -51,21 +66,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [4, 5, 6, 7]
-}
-
-[sub_resource type="Animation" id="Animation_8jxxj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_waqf1"]
@@ -101,6 +101,8 @@ hframes = 4
 vframes = 2
 
 [node name="AvoidanceCollider" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="Hitbox" type="CollisionShape2D" parent="AvoidanceCollider"]
 shape = SubResource("CircleShape2D_78lj2")

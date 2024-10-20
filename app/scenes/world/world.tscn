@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8w4bbt6ofikb"]
+
+[ext_resource type="Script" path="res://app/scenes/world/world.gd" id="1_gts7s"]
+[ext_resource type="PackedScene" uid="uid://m1nmnse2h65y" path="res://features/units/wizzard/wizzard_unit.tscn" id="2_a63f0"]
+
+[node name="World" type="Node2D" groups=["world"]]
+script = ExtResource("1_gts7s")
+
+[node name="WizzardUnit" parent="." instance=ExtResource("2_a63f0")]
+position = Vector2(93, 68)
+
+[node name="WizzardUnit2" parent="." instance=ExtResource("2_a63f0")]
+position = Vector2(210, 89)
