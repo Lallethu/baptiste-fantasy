@@ -1,0 +1,106 @@
+[gd_scene load_steps=11 format=3 uid="uid://m1nmnse2h65y"]
+
+[ext_resource type="Texture2D" uid="uid://xif718l5smls" path="res://app/assets/gfx/sprite_sheets/units/wizard.png" id="1_32o8d"]
+[ext_resource type="Script" path="res://features/units/wizzard/wizzard_unit.gd" id="1_tgx0w"]
+[ext_resource type="Script" path="res://common/data_resources/unit_data.gd" id="2_xfki2"]
+
+[sub_resource type="Resource" id="Resource_h2tr6"]
+script = ExtResource("2_xfki2")
+name = "Wizzard"
+speed = 100.0
+max_health = 100
+attack_power = 25
+attack_range = 1.5
+experience_max = 1.75
+resources_cost = {}
+creation_time = 0
+is_worker = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jvja7"]
+radius = 7.07107
+
+[sub_resource type="Animation" id="Animation_50py2"]
+resource_name = "idle"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_36u1l"]
+resource_name = "running"
+length = 0.6
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_8jxxj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_waqf1"]
+_data = {
+"RESET": SubResource("Animation_8jxxj"),
+"idle": SubResource("Animation_50py2"),
+"running": SubResource("Animation_36u1l")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_78lj2"]
+radius = 14.0
+
+[node name="WizzardUnit" type="CharacterBody2D" groups=["units"]]
+collision_layer = 6
+collision_mask = 7
+script = ExtResource("1_tgx0w")
+unit_data = SubResource("Resource_h2tr6")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jvja7")
+debug_color = Color(0.942025, 0.0568368, 0.580898, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_waqf1")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_32o8d")
+hframes = 4
+vframes = 2
+
+[node name="AvoidanceCollider" type="Area2D" parent="."]
+
+[node name="Hitbox" type="CollisionShape2D" parent="AvoidanceCollider"]
+shape = SubResource("CircleShape2D_78lj2")
