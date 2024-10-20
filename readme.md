@@ -11,7 +11,7 @@ Le jeu est en cours de développement. Il n'est pas encore jouable.
 
 ## TODO
 
-- [ ] Créer une unité (optionnel : créer plusieurs unités)
+- [x] Créer une unité (optionnel : créer plusieurs unités)
 - [ ] Sélectionner une ou plusieurs unités
 - [ ] Déplacer une ou plusieurs unités
 - [ ] Créer un data-driven system pour les ressources, les unités, les bâtiments
