@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Baptiste Fantasy"
-run/main_scene="res://app/scenes/world.tscn"
+run/main_scene="res://app/scenes/world/world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://app/assets/gfx/baptiste-fantasy.png"
 
